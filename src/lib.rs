@@ -11,6 +11,12 @@ use std::sync::atomic::AtomicBool;
 use std::sync::Arc;
 
 pub mod log;
+mod steelmill;
+
+pub use steelmill::Steelmill;
+
+/// XXX get rid of this pub!
+pub use steelmill::unsafe_scope;
 
 /// Errors returned by `Factory`, including a `Cancellation` error that means
 /// we are in the process of shutting down.
@@ -20,9 +26,11 @@ pub enum FactoryError<E: std::fmt::Debug> {
     CyclicDependency(&'static str),
     CouldNotConstruct(&'static str, E),
     FieldAlreadySet(&'static str),
+    DaemonSetupFailed(&'static str, E),
     DaemonPrepareFailed(&'static str, E),
     DaemonRunFailed(&'static str, E),
     DaemonStopFailed(&'static str, E),
+    InternalError(String),
 }
 
 impl<E: std::fmt::Debug> Display for FactoryError<E> {

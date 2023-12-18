@@ -58,6 +58,8 @@ dependencies = [
 [[package]]
 name = "atomic-try-update"
 version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "73d365d2e8ae3ee274325b0c15992376960c3a8f66c2b1b3d8e96e6e8bc1c16b"
 dependencies = [
  "crossbeam-utils",
  "num_enum",
@@ -708,6 +710,7 @@ dependencies = [
  "async-trait",
  "atomic-try-update",
  "erased-serde",
+ "futures-util",
  "serde",
  "serde_json",
  "slog",
