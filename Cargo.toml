@@ -1,0 +1,37 @@
+[package]
+name = "steelmill"
+version = "0.0.1"
+edition = "2021"
+license = "MIT"
+description = "A resource manager (dependency injector / factory) designed for distributed systems and simulation testing"
+documentation = "https://docs.rs/steelmill"
+readme = "README.md"
+repository = "https://github.com/crystalcld/steelmill/"
+categories = [ "concurrency", "database-implementations", "network-programming", "development-tools::testing", "asynchronous" ]
+keywords = ["resource-manager", "dependency-injector", "factory", "leases", "simulator" ]
+# TODO: Set homepage field
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+async-scoped = { version = "0.7", features = ["use-tokio"]}
+async-trait = "0.1"
+atomic-try-update = { version = "0.0.2" }
+erased-serde = "0.3"
+#tokio = { version = "1.13", features = [ "sync" ] }
+#crossbeam-utils = "0.8"
+#num_enum = "0.6"
+serde = { version = "1", features=["derive"]}
+serde_json = "1"
+slog = { version = "2", features = ["max_level_trace", "release_max_level_info", "nested-values"] }
+slog-async = { version = "2", features = [ "nested-values" ] }
+slog_derive = "0.2"
+slog-envlogger = "2"
+slog-term = { version = "2", features = [ "nested-values" ] }
+slog-json = { version = "2", features = [ "nested-values" ] }
+
+[dev-dependencies]
+#rand = "0.8"
+serde = { version = "1", features=["derive"]}
+serde_json = "1"
+tokio = { version = "1.13", features = [ "macros", "rt-multi-thread", "test-util" ] }
